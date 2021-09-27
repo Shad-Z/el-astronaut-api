@@ -20,10 +20,9 @@ class Astronaut implements \JsonSerializable
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
-     * @Assert\NotNull()
+     * @Assert\NotBlank(allowNull=false)
      * @Assert\Length(max=255)
-     * @Assert\Regex(pattern="/^\D+$/")
+     * @Assert\Regex(pattern="/^[a-zA-Z-éèï]+$/")
      */
     private $name;
 
