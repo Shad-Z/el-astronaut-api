@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AstronautRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AstronautRepository::class)
@@ -19,6 +20,10 @@ class Astronaut implements \JsonSerializable
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\NotNull()
+     * @Assert\Length(max=255)
+     * @Assert\Regex(pattern="/^\D+$/")
      */
     private $name;
 
